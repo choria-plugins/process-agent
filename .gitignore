@@ -5,3 +5,4 @@ puppet/CHANGELOG.md
 puppet/LICENSE
 puppet/NOTICE
 *.tar.gz
+.ruby-version

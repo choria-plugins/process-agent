@@ -16,7 +16,8 @@ module MCollective
         zombies = request[:just_zombies] || false
         user    = request[:user] || false
 
-        reply[:pslist] = get_proc_list(pattern, zombies, user)
+        # force all the data into strings for keys for long term JSON on the wire compatability
+        reply[:pslist] = JSON.load(JSON.dump(get_proc_list(pattern, zombies, user)))
       end
 
       private

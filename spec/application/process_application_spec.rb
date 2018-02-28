@@ -112,15 +112,15 @@ module MCollective
       describe '#fields' do
         it 'should return an array of values corresponding to the supplied fields' do
           field_names = ['PID', 'USER', 'VSZ', 'COMMAND', 'TTY', 'RSS', 'STATE']
-          process = {:pid      => 500,
-                     :username => 'rspec',
-                     :vsize    => 100,
-                     :cmdline  => 'rspec',
-                     :tty_nr   => 1,
-                     :rss      => 1,
-                     :state    => 'Z'
+          process = {"pid"      => 500,
+                     "username" => 'rspec',
+                     "vsize"    => 100,
+                     "cmdline"  => 'rspec',
+                     "tty_nr"   => 1,
+                     "rss"      => 1,
+                     "state"    => 'Z'
                     }
-          Fixnum.any_instance.stubs(:bytes_to_human).returns('100 B')
+          Util::Processagent.stubs(:bytes_to_human).returns('100 B')
 
           result = @app.fields(field_names, process)
           result.should == [500, 'rspec', '100 B', '[rspec]', 1, '100 B', 'Z']
@@ -131,13 +131,13 @@ module MCollective
         let(:client) { mock }
 
         let(:process) do
-          [{:pid      => 500,
-           :username => 'rspec',
-           :vsize    => 100,
-           :cmdline  => 'rspec',
-           :tty_nr   => 1,
-           :rss      => 1,
-           :state    => 'Z'
+          [{"pid"     => 500,
+           "username" => 'rspec',
+           "vsize"    => 100,
+           "cmdline"  => 'rspec',
+           "tty_nr"   => 1,
+           "rss"      => 1,
+           "state"    => 'Z'
           }]
         end
 
@@ -155,7 +155,7 @@ module MCollective
           @app.configuration[:fields] = ['PID', 'USER', 'COMMAND']
           @app.configuration[:just_zombies] = false
           @app.configuration[:action] = 'list'
-          Fixnum.any_instance.stubs(:bytes_to_human).returns('100 B')
+          Util::Processagent.stubs(:bytes_to_human).returns('100 B')
           @app.expects(:printrpcstats)
           @app.expects(:halt)
 

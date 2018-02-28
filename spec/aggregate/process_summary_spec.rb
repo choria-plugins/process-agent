@@ -7,7 +7,7 @@ module MCollective
   class Aggregate
     describe Process_summary do
       let(:aggregate) { Process_summary.new(:test, [], nil, :test_action) }
-      let(:input) { [{:rss => 1, :vsize => 100}, {:rss => 2, :vsize => 200}] }
+      let(:input) { [{"rss" => 1, "vsize" => 100}, {"rss" => 2, "vsize" => 200}] }
 
 
       before do
@@ -16,7 +16,7 @@ module MCollective
 
       describe '#startup_hook' do
         it 'should load the Numeric monkey patch' do
-          PluginManager.expects(:loadclass).with('MCollective::Util::Process::Numeric')
+          PluginManager.expects(:loadclass).with('MCollective::Util::Processagent')
           aggregate
         end
 
@@ -40,7 +40,7 @@ module MCollective
 
       describe '#summarize' do
         it 'should summarize the results correctly' do
-          Fixnum.any_instance.expects(:bytes_to_human).twice
+          Util::Processagent.expects(:bytes_to_human).twice
           aggregate.process_result(input, {})
           aggregate.summarize
         end

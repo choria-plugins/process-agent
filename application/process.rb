@@ -63,20 +63,20 @@ module  MCollective
       end
 
       def fields(field_names, process)
-        f = {'PID'     => process[:pid],
-             'USER'    => process[:username][0,10],
-             'VSZ'     => process[:vsize].bytes_to_human,
-             'COMMAND' => ( (process[:state] == 'Z') ? "[#{process[:cmdline]}]" : process[:cmdline])[0,60],
-             'TTY'     => process[:tty_nr],
-             'RSS'     => (process[:rss] * 1024).bytes_to_human,
-             'STATE'   => process[:state]
+        f = {'PID'     => process["pid"],
+             'USER'    => process["username"][0,10],
+             'VSZ'     => Util::Processagent.bytes_to_human(process["vsize"]),
+             'COMMAND' => ( (process["state"] == 'Z') ? "[#{process['cmdline']}]" : process["cmdline"])[0,60],
+             'TTY'     => process["tty_nr"],
+             'RSS'     => Util::Processagent.bytes_to_human(process["rss"] * 1024),
+             'STATE'   => process["state"]
         }
 
         field_names.map{|x| f[x]}
       end
 
       def main
-        PluginManager.loadclass('MCollective::Util::Process::Numeric')
+        PluginManager.loadclass('MCollective::Util::Processagent')
         ps = rpcclient('process')
         if configuration[:user]
           ps_result = ps.send(configuration[:action], :pattern => configuration[:pattern], :just_zombies => configuration[:just_zombies], :user => configuration[:user])
