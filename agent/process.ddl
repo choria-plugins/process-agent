@@ -1,9 +1,9 @@
 metadata    :name        => "process",
-            :description => "Agent To Manage Processes",
-            :author      => "R.I.Pienaar",
-            :license     => "ASL 2.0",
+            :description => "Manages Operating System Processes",
+            :author      => "R.I.Pienaar <rip@devco.net>",
+            :license     => "Apache-2.0",
             :version     => "3.0.0",
-            :url         => "https://github.com/ripienaar/mcollective-process-agent",
+            :url         => "https://github.com/choria-plugins/process-agent",
             :timeout     => 10
 
 requires :mcollective => '2.2.1'

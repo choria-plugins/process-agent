@@ -1,23 +1,37 @@
-#Process Agent
+# Process Agent
 
 An agent that can be used to list running processes on remote machines.
 
-##Installation
+<!--- actions -->
 
-* Follow the [plugin install guide](http://docs.puppet.com/mcollective/deploy/plugins.html).
-* You need to have the [sys-proctable](http://raa.ruby-lang.org/project/sys-proctable/) Gem installed.
+## Installation
 
-##Configuration
+Install the `sys-proctable` RubyGem on all your agent nodes, this Gem uses native extensions and so will need compilers:
+
+```yaml
+mcollective_agent_nettest::gem_dependencies:
+  "sys-proctable": "1.2.0"
+```
+
+Add the agent and client:
+
+```yaml
+mcollective::plugin_classes:
+  - mcollective_agent_process
+```
+
+## Configuration
 
 The Process client application can be configured to list only a subset of possible process field values. This can be
 configured in your client configuration file. Available fields are PID, USER, VSZ, COMMAND, TTY, RSS and STATE.
 Unconfigured the output will default to PID, USER, VSZ and COMMAND.
 
-```
-plugin.process.fields = PID, COMMAND, TTY, STATE
+```yaml
+mcollective_agent_process::config:
+  fields: PID, COMMAND, TTY, STATE
 ```
 
-##Usage
+## Usage
 ```
 % mco process list ruby
 
@@ -74,7 +88,7 @@ Summary of The Process List:
 Finished processing 2 / 2 hosts in 96.65 ms
 ```
 
-##Data Plugin
+## Data Plugin
 
 The Process agent also supplies a data plugin which uses the sys-proctable Gem to check if there exists a process
 that matches a given pattern and can be used during discovery or any other place where the MCollective discovery
@@ -83,10 +97,3 @@ language is used.
 ```
 mco rpc rpcutil ping -S "process('ruby').exists=true"
 ```
-
-## Maintenance
-
-Maintainers: Alessandro Parisi <alessandro@puppet.com>, Michael Smith
-<michael.smith@puppet.com>, Michal Ruzicka <michal.ruzicka@puppet.com>.
-
-Tickets: File bug tickets at https://tickets.puppet.com/browse/MCOP.
