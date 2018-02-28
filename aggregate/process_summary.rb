@@ -1,8 +1,8 @@
 module MCollective
   class Aggregate
-    class Process_summary<Base
+    class Process_summary < Base
       def startup_hook
-        PluginManager.loadclass('MCollective::Util::Processagent')
+        PluginManager.loadclass("MCollective::Util::Processagent")
         # Hosts, count, rss, vsize
         result[:value] = [0, 0, 0, 0]
         @result[:type] = :numeric
