@@ -2,7 +2,7 @@ metadata :name => "process_data",
          :description => "Checks if a process matching a supplied pattern is present",
          :author => "Pieter Loubser <pieter.loubser@puppetlabs.com>",
          :license => "Apache-2.0",
-         :version => "3.0.0",
+         :version => "4.0.0",
          :url => "https://github.com/choria-plugins/process-agent",
          :timeout => 1
 
