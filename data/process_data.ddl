@@ -4,7 +4,7 @@ metadata :name => "process_data",
          :license => "Apache-2.0",
          :version => "4.0.0",
          :url => "https://github.com/choria-plugins/process-agent",
-         :timeout => 1
+         :timeout => 3
 
 dataquery :description => "Process" do
   input :query,
