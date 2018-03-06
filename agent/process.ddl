@@ -2,7 +2,7 @@ metadata    :name        => "process",
             :description => "Manages Operating System Processes",
             :author      => "R.I.Pienaar <rip@devco.net>",
             :license     => "Apache-2.0",
-            :version     => "4.0.0",
+            :version     => "4.0.1",
             :url         => "https://github.com/choria-plugins/process-agent",
             :timeout     => 10
 
