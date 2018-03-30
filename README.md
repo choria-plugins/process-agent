@@ -30,7 +30,6 @@ On Archlinux machines the following Hiera data will install the dependencies usi
 mcollective_agent_process::manage_gem_dependencies: false
 mcollective_agent_process::package_dependencies:
   ruby-sys-proctable: present
-  ruby-ffi: present
 ```
 
 ## Configuration
