@@ -8,8 +8,10 @@ An agent that can be used to list running processes on remote machines.
 
 Install the `sys-proctable` RubyGem on all your agent nodes, this Gem uses native extensions and so will need compilers:
 
+**NOTE:** To install this gem you need to have a c++ compiler on your system
+
 ```yaml
-mcollective_agent_nettest::gem_dependencies:
+mcollective_agent_process::gem_dependencies:
   "sys-proctable": "1.2.0"
 ```
 
@@ -18,6 +20,17 @@ Add the agent and client:
 ```yaml
 mcollective::plugin_classes:
   - mcollective_agent_process
+```
+
+### Archlinux
+
+On Archlinux machines the following Hiera data will install the dependencies using native packages and you do not need compilers:
+
+```yaml
+mcollective_agent_process::manage_gem_dependencies: false
+mcollective_agent_process::package_dependencies:
+  ruby-sys-proctable: present
+  ruby-ffi: present
 ```
 
 ## Configuration
