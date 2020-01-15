@@ -12,7 +12,7 @@ Install the `sys-proctable` RubyGem on all your agent nodes, this Gem uses nativ
 
 ```yaml
 mcollective_agent_process::gem_dependencies:
-  "sys-proctable": "1.2.0"
+  "sys-proctable": "1.2.2"
 ```
 
 Add the agent and client:
