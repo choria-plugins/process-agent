@@ -72,7 +72,7 @@ module MCollective
           name.expects(:uid).raises("error")
           Log.expects(:debug).with("Could not get uid for user: user1")
           result = @agent.send(:get_uid, "user1")
-          result.should be_false
+          result.should be_falsey
         end
       end
 
