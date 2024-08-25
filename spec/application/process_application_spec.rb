@@ -36,18 +36,18 @@ module MCollective
 
         it "should fail if an action was not specified" do
           ARGV.shift
-          expect {
+          lambda {
             @app.post_option_parser({})
-          }.to raise_error
+          }.should raise_error(RuntimeError, "Please provide an action")
         end
 
         it "should fail on an invalid action" do
           ARGV.shift
           ARGV << "rspec"
 
-          expect {
+          lambda {
             @app.post_option_parser({})
-          }.to raise_error
+          }.should raise_error(ArgumentError, "too few arguments")
         end
 
         it "should set fields from the cli" do
@@ -77,7 +77,7 @@ module MCollective
         it "should set the value of just_zombies to a TrueClass or FalseClass" do
           config = {:fields => []}
           @app.post_option_parser(config)
-          expect(config[:just_zombies]).to be(false)
+          config[:just_zombies].should be(false)
 
           ARGV << "list"
 
@@ -103,9 +103,9 @@ module MCollective
 
         it "should fail on a invalid field name" do
           config = {:fields => ["rspec"]}
-          expect {
+          lambda {
             @app.validate_configuration(config)
-          }.to raise_error
+          }.should raise_error(RuntimeError, "'rspec' specified as process field. Valid options are PID, USER, VSZ, COMMAND, TTY, RSS, STATE")
         end
       end
 

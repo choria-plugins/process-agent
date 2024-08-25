@@ -20,7 +20,7 @@ module MCollective
         end
 
         it "should set type and value variables" do
-          expect(aggregate.result[:value]).to eq([0, 0, 0, 0])
+          aggregate.result[:value].should eq([0, 0, 0, 0])
           aggregate.result[:type].should == :numeric
         end
       end
