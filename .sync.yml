@@ -1,0 +1,5 @@
+Gemfile:
+  optional:
+    ':test':
+      - gem: 'rubocop'
+      - gem: 'sys-proctable'
