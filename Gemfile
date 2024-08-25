@@ -7,7 +7,7 @@ group :test do
   gem "mocha"
   gem "rake"
   gem "rspec"
-  gem "rubocop", "0.51.0"
+  gem "rubocop"
   gem "sys-proctable"
 end
 
@@ -16,5 +16,5 @@ mcollective_version = ENV["MCOLLECTIVE_GEM_VERSION"]
 if mcollective_version
   gem "mcollective-client", mcollective_version, :require => false
 else
-  gem "mcollective-client", :require => false # rubocop:disable Bundler/DuplicatedGem
+  gem "mcollective-client", :require => false
 end
