@@ -1,13 +1,13 @@
 #!/usr/bin/env rspec
 
 require "spec_helper"
-require File.join(File.dirname(__FILE__), "../../", "application", "process.rb")
+require File.join(File.dirname(__FILE__), "../../", "files", "mcollective", "application", "process.rb")
 
 module MCollective
   class Application
     describe Process do
       before do
-        application_file = File.join(File.dirname(__FILE__), "../../", "application", "process.rb")
+        application_file = File.join(File.dirname(__FILE__), "../../", "files", "mcollective", "application", "process.rb")
         @app = MCollective::Test::ApplicationTest.new("process", :application_file => application_file).plugin
       end
 
