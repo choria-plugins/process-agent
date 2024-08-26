@@ -1,7 +1,7 @@
 #!/usr/bin/ruby
 
 require "spec_helper"
-require File.join(File.dirname(__FILE__), "../../", "util", "processagent.rb")
+require File.join(File.dirname(__FILE__), "../../", "files", "mcollective", "util", "processagent.rb")
 
 module MCollective
   module Util

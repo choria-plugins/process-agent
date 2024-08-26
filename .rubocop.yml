@@ -3,6 +3,7 @@ AllCops:
   DisplayStyleGuide: true
   Exclude:
     - "spec/fixtures/**/*"
+    - "vendor/**/*"
 
 # restore pre 0.45 behaviour
 Style/SingleLineBlockParams:
@@ -21,9 +22,6 @@ Style/TrailingUnderscoreVariable:
   Enabled: false
 
 Lint/NonLocalExitFromIterator:
-  Enabled: false
-
-Style/TrailingUnderscoreVariable:
   Enabled: false
 
 Naming/ClassAndModuleCamelCase:
@@ -68,9 +66,6 @@ Layout/SpaceInsideBlockBraces:
 Layout/SpaceInsideHashLiteralBraces:
   EnforcedStyle: no_space
 
-Style/Documentation:
-  Severity: warning
-
 Style/EachWithObject:
   Enabled: false
 
@@ -104,7 +99,7 @@ Lint/UnusedMethodArgument:
 Lint/AssignmentInCondition:
   Enabled: false
 
-Metrics/LineLength:
+Layout/LineLength:
   Max: 180
 
 Metrics/PerceivedComplexity:
@@ -131,9 +126,6 @@ Metrics/ModuleLength:
 Metrics/BlockLength:
   Enabled: false
 
-Performance/Casecmp:
-  Enabled: false
-
 Style/FrozenStringLiteralComment:
   Enabled: false
 
@@ -143,21 +135,33 @@ Style/SymbolArray:
 Security/MarshalLoad:
   Enabled: false
 
-Layout/IndentHeredoc:
+Layout/HeredocIndentation:
+  Enabled: false
+
+Layout/HashAlignment:
+  Enabled: false
+
+Style/FormatStringToken:
+  Enabled: false
+
+Style/RedundantBegin:
+  Enabled: false
+
+Style/IfUnlessModifier:
+  Enabled: false
+
+Naming/MethodParameterName:
+  Enabled: false
+
+Lint/ConstantDefinitionInBlock:
   Enabled: false
 
 # @todo use safe_load but its a big change
 Security/YAMLLoad:
   Enabled: false
 
-Performance/RegexpMatch:
-  Enabled: false
-
 Style/SafeNavigation:
   Enabled: false
 
-Lint/RescueWithoutErrorClass:
-  Enabled: false
-
-Performance/StringReplacement:
+Style/RescueStandardError:
   Enabled: false

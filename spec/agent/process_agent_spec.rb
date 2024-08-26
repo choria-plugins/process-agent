@@ -1,14 +1,14 @@
 #!/usr/bin/env rspec
 
 require "spec_helper"
-require File.join(File.dirname(__FILE__), "../../", "agent", "process.rb")
+require File.join(File.dirname(__FILE__), "../../", "files", "mcollective", "agent", "process.rb")
 
 module MCollective
   module Agent
     describe Process do
       before do
         Process.stubs(:require).with("sys/proctable")
-        agent_file = File.join(File.dirname(__FILE__), "../../", "agent", "process.rb")
+        agent_file = File.join(File.dirname(__FILE__), "../../",  "files", "mcollective", "agent", "process.rb")
         @agent = MCollective::Test::LocalAgentTest.new("process", :agent_file => agent_file).plugin
       end
 

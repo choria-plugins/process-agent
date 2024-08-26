@@ -2,7 +2,11 @@
 
 An agent that can be used to list running processes on remote machines.
 
-<!--- actions -->
+## Actions
+
+This agent provides the following actions, for details about each please run `mco plugin doc agent/process`
+
+ * **list** - List Processes
 
 ## Installation
 

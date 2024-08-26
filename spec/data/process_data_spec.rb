@@ -1,14 +1,14 @@
 #!/usr/bin/ruby
 
 require "spec_helper"
-require File.join(File.dirname(__FILE__), "../../", "data", "process_data.rb")
+require File.join(File.dirname(__FILE__), "../../", "files", "mcollective", "data", "process_data.rb")
 
 module MCollective
   module Data
     describe Process_data do
       before do
         Process_data.stubs(:require)
-        @data_file = File.join(File.dirname(__FILE__), "../../", "data", "process_data.rb")
+        @data_file = File.join(File.dirname(__FILE__), "../../", "files", "mcollective", "data", "process_data.rb")
         @data = MCollective::Test::DataTest.new("process_data", :data_file => @data_file).plugin
       end
 
