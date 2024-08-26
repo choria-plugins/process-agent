@@ -2,6 +2,12 @@
 
 Change history for `choria/mcollective_agent_process`
 
+## 4.1.0
+
+Released 2024-08-26
+
+ * Support latest ruby and use new module layout
+
 ## 4.0.2
 
 Released 2018-04-20
